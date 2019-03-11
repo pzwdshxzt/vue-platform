@@ -1,12 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-container>
+      <el-header>
+        <div class="nav-platform">
+          <div class="left el-icon-star-off">PF</div>
+          <div class="serach"><el-input v-model="input" placeholder="Serch..." style="margin: 0 auto"></el-input></div>
+          <div class="right">me</div>
+        </div>
+      </el-header>
+      <el-main>
+        <div>
+          <el-button>el-button</el-button>
+        </div>
+      </el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
   </div>
 </template>
+
+<script>
+
+export default {
+  name: 'app',
+  components: {
+  },
+  data(){
+    return{
+      activeIndex: '1',
+    }
+  },
+  methods: {
+  }
+}
+</script>
 
 <style>
 #app {
@@ -15,17 +41,31 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin-top: 60px;
 }
-#nav {
-  padding: 30px;
+.serach {
+  margin:0 auto;
+  background:red;
+  height: 100%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.left {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width:100px;
+  background:blue;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.right {
+  height: 100%;
+  position:absolute;
+  top:0;
+  right:0;
+  width:100px;
+  background:green;
+}
+.nav-platform{
+  width: 100%;
+  height: 100px;
 }
 </style>
