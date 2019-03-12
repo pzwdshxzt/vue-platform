@@ -1,35 +1,30 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>
-        <div class="nav-platform">
-          <div class="left el-icon-star-off">PF</div>
-          <div class="serach"><el-input v-model="input" placeholder="Serch..." style="margin: 0 auto"></el-input></div>
-          <div class="right">me</div>
-        </div>
-      </el-header>
-      <el-main>
-        <div>
-          <el-button>el-button</el-button>
-        </div>
-      </el-main>
-      <el-footer>Footer</el-footer>
-    </el-container>
+    <div class="app">
+      <router-view></router-view>
+      <bottom-nav></bottom-nav>
+    </div>
   </div>
 </template>
-
 <script>
-
+import BottomNav from './components/BottomNav'
 export default {
-  name: 'app',
-  components: {
-  },
   data(){
-    return{
-      activeIndex: '1',
+    return {
+        showSearch: false,
+        activeName: 'Platform',
+        input: ''
     }
   },
+  name: 'app',
+  components: {
+      BottomNav
+  },
   methods: {
+    showSearchMethod() {
+      this.showSearch = true;
+      this.$refs.indexscroller.finishPullToRefresh();
+    }
   }
 }
 </script>
@@ -41,31 +36,26 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
-.serach {
-  margin:0 auto;
-  background:red;
-  height: 100%;
+.app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.left {
-  position:absolute;
-  top:0;
-  left:0;
-  height: 100%;
-  width:100px;
-  background:blue;
+.navigation{
+  display:flex;/*设置五个导航条的内容由列排列变为行排列*/
+  height: 8vh ;
+  font-size: 0.7rem;
 }
-.right {
-  height: 100%;
-  position:absolute;
-  top:0;
-  right:0;
-  width:100px;
-  background:green;
+.nav{
+  display: flex;/*这个和下面的 flex-direction属性设置将图片与文字平行排布*/
+  flex-direction: column;
+  flex: 1;/*设置五个导航条的内容等分*/
+  margin: 0.5rem 0 0 0rem;
+  line-height: 1.2rem;
 }
-.nav-platform{
-  width: 100%;
-  height: 100px;
+#outer-4ouoy {
+
 }
 </style>
