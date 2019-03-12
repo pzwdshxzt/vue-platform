@@ -3,7 +3,13 @@
         <el-header height="25px">
             <TopNav :title="title"></TopNav>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+            <scroller  ref="shopping_scroller" noDataText="" height="85%" style="top: 50px; left: 0">
+                <div class="shopping-main">
+                    <span>你还没添加商品，快去选择吧<br></span>
+                </div>
+            </scroller>
+        </el-main>
     </el-container>
 </template>
 <script>
@@ -19,3 +25,8 @@
         }
     }
 </script>
+<style>
+    .shopping-main{
+        padding-top: 10px;
+    }
+</style>

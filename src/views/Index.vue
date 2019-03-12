@@ -22,7 +22,7 @@
                         <!--<img class="navIcon" src="../../static/image/homeOn.png"/>-->
                     </div>
                     <div class="line"></div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </el-main>
             </scroller>
         </el-container>

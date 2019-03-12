@@ -19,21 +19,7 @@
             <el-main width="82%">
                 <scroller  ref="content_scroller" noDataText="" height="85%" style="top: 50px; left: 18%" width="82%">
                     <div>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
-                        cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>cccc<br>
+                        cccc
                     </div>
                 </scroller>
             </el-main>
