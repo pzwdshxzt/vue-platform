@@ -15,10 +15,14 @@ export default {
 
 <style>
 .navigation{
-    top:5%;
     display:flex;/*设置五个导航条的内容由列排列变为行排列*/
     height: 8vh ;
     font-size: 0.7rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
 }
 .nav{
     display: flex;/*这个和下面的 flex-direction属性设置将图片与文字平行排布*/

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <div class="app">
-      <router-view></router-view>
-      <bottom-nav></bottom-nav>
+      <el-container>
+        <router-view></router-view>
+        <bottom-nav></bottom-nav>
+      </el-container>
     </div>
   </div>
 </template>

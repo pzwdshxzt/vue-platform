@@ -25,9 +25,10 @@ export default {
 </script>
 <style scoped>
 .icon-left{
-    float: left
+    float: left;
 }
-.icon-right{
+.icon-right {
     float: right;
 }
+
 </style>

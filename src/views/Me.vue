@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <scroller  ref="shopping_scroller" noDataText="" height="85%" style="top: 30px; left: 0">
+        <scroller  ref="shopping_scroller" noDataText="" height="85%" style="top: 20px; left: 0">
             <div class="nav-head">
                 <div class="head-left">
                     <img class="head-img" src="../../public/static/img/head.jpg" alt="head">

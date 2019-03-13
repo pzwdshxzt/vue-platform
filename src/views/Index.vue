@@ -1,7 +1,7 @@
 <template>
     <div class="index">
         <el-container>
-            <scroller  :on-refresh="showSearchMethod" ref="indexscroller" noDataText="" refreshText="showSearchTips" height="90%">
+            <scroller  :on-refresh="showSearchMethod" ref="indexscroller" noDataText="" :refreshText="showSearchTips" height="90%">
                 <el-main>
                     <div v-if="showSearch" >
                         <el-input  v-model="input"  placeholder="搜索商品名称" icon="el-icon-search" ></el-input>
