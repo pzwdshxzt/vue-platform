@@ -58,7 +58,7 @@
     }
 </script>
 
-<style>
+<style scoped>
 .platformTitle{
     color: gold;
     font-size: xx-large;
