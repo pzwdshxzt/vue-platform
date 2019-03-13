@@ -24,6 +24,7 @@
                         <el-menu-item index="1-1">待付款</el-menu-item>
                         <el-menu-item index="1-2">待收货</el-menu-item>
                         <el-menu-item index="1-3">已完成</el-menu-item>
+                        <el-menu-item index="1-4">退换货</el-menu-item>
                     </el-submenu>
                     <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
