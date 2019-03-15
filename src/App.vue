@@ -1,10 +1,8 @@
 <template>
   <div id="app">
     <div class="app">
-      <el-container>
         <router-view></router-view>
-        <bottom-nav></bottom-nav>
-      </el-container>
+        <!--<bottom-nav></bottom-nav>-->
     </div>
   </div>
 </template>

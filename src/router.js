@@ -6,6 +6,7 @@ import Me from "./views/Me"
 import ShoppingCar from "./views/ShoppingCar"
 import Login from "./views/Login"
 import Register from "./views/Register"
+import ChatBox from "./views/ChatBox";
 
 Vue.use(Router);
 
@@ -40,6 +41,11 @@ export default new Router({
           path: '/register',
           name: 'register',
           component: Register
+      },
+      {
+          path: '/chatBox',
+          name: 'chatBox',
+          component: ChatBox
       }
   ]
 })

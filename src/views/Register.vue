@@ -88,6 +88,7 @@
                         ).then((Response) => {
                             this.loginSuccess(Response)
                         })
+                        this.$router.push("/me")
                     } else {
                         this.$message({
                             type: 'warning',

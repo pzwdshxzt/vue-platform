@@ -27,7 +27,7 @@
                     </el-submenu>
                     <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
-                        <span slot="title">聊天室</span>
+                        <span slot="title"><router-link to="/chatBox">聊天室</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-document"></i>
@@ -48,9 +48,12 @@
                 </el-menu>
             </el-card>
         </scroller>
+        <BottomNav></BottomNav>
     </el-container>
+
 </template>
 <script>
+    import BottomNav from '../components/BottomNav'
     export default {
         data(){
             return {
@@ -71,7 +74,6 @@
                         'Content-Type': 'application/json'
                     } }
                 ).then((Response) => {
-                    console.log(Response)
                     if (Response.data.code === 200) {
                         this.$message({
                             type: 'success',
@@ -94,6 +96,9 @@
             username: function () {
                 return this.$store.state.user.name
             }
+        },
+        components: {
+            BottomNav
         }
     }
 </script>
@@ -103,7 +108,11 @@
         margin: 0 auto;
         width: 90%;
         border-radius: 1%;
-
+    }
+    .nav-header a{
+        font-weight:bold;
+        color: #303133;
+        text-decoration:none;
     }
     .head-left{
         top: 5px;

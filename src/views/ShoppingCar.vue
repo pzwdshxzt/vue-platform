@@ -10,9 +10,15 @@
                 </div>
             </scroller>
         </el-main>
+        <el-footer>
+            <bottom-nav></bottom-nav>
+        </el-footer>
     </el-container>
+
+
 </template>
 <script>
+    import BottomNav from '../components/BottomNav'
     import TopNav from '../components/TopNav'
     export default {
         data(){
@@ -21,7 +27,8 @@
             }
         },
         components:{
-            TopNav
+            TopNav,
+            BottomNav
         }
     }
 </script>

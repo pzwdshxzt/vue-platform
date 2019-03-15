@@ -40,7 +40,13 @@ axios.interceptors.response.use(
   response => {
     if (response.data !== undefined && response.data !== '') {
       let data = Utils.decrypt(response.data.data)
-      response.data = JSON.parse(data)
+
+        if (data.data !== undefined) {
+            response.data = data
+        } else {
+            response.data = JSON.parse(data)
+        }
+
       if (response.data.data !== undefined && response.data.data !== '') {
         response.data.data = JSON.parse(response.data.data)
       }
@@ -48,7 +54,6 @@ axios.interceptors.response.use(
     return response
   },
   error => {
-      console.log(error);
     if (error.response.code === 999) {
       Message({
         type: 'warning',

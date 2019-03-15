@@ -25,11 +25,16 @@
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                 </el-main>
             </scroller>
+            <el-footer>
+                <BottomNav></BottomNav>
+            </el-footer>
         </el-container>
     </div>
 </template>
 
 <script>
+
+    import BottomNav from '../components/BottomNav'
     export default {
         data(){
             return {
@@ -41,6 +46,7 @@
         },
         name: 'app',
         components: {
+            BottomNav
         },
         methods: {
             showSearchMethod(done) {
