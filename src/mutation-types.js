@@ -1,0 +1,5 @@
+export const ADDTIME_MUTATION = 'ADD_TIME'
+export const CHANGE_FORM = 'CHANGE_FORM'
+export const RESET_FORM = 'RETSET_FORM'
+export const LOGIN_USER_INFO = 'LOGIN_USER_INFO'
+export const LOGINOUT = 'LOGINOUT'

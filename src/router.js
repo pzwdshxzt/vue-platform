@@ -4,6 +4,8 @@ import Index from "./views/Index";
 import Category from "./views/Category"
 import Me from "./views/Me"
 import ShoppingCar from "./views/ShoppingCar"
+import Login from "./views/Login"
+import Register from "./views/Register"
 
 Vue.use(Router);
 
@@ -28,6 +30,16 @@ export default new Router({
         path: '/shoppingCar',
         name: 'shoppingCar',
         component: ShoppingCar
-    }
+    },
+      {
+          path: '/login',
+          name: 'login',
+          component: Login
+      },
+      {
+          path: '/register',
+          name: 'register',
+          component: Register
+      }
   ]
 })

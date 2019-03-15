@@ -2,7 +2,6 @@
     <div class="navigation">
         <div class="nav"><router-link to="/">首页</router-link></div>
         <div class="nav"><router-link to="/category">分类</router-link></div>
-        <!--<div class="nav">发现</div>-->
         <div class="nav"><router-link to="/shoppingCar">购物车</router-link></div>
         <div class="nav"><router-link to="/me">我的</router-link></div>
     </div>

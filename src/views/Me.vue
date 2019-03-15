@@ -7,7 +7,7 @@
                 </div>
                 <div class="head-right">
                     <span v-if="username" class="username">{{ username }}</span>
-                    <el-button v-if="!username" type="text" class="button">登陆</el-button>
+                    <el-button v-if="!username" type="text" class="button"><router-link to="/login">登陆/注册</router-link></el-button>
                 </div>
             </el-card>
             <br>
@@ -15,32 +15,35 @@
                 <el-menu
                         default-active="1"
                         class="el-menu-vertical-demo"
-                        @close="handleClose"
                         text-color="#dsddss">
                     <el-submenu index="1">
                         <template slot="title">
                             <i class="el-icon-location"></i>我的订单
                         </template>
-                        <el-menu-item index="1-1">待付款</el-menu-item>
-                        <el-menu-item index="1-2">待收货</el-menu-item>
-                        <el-menu-item index="1-3">已完成</el-menu-item>
-                        <el-menu-item index="1-4">退换货</el-menu-item>
+                        <el-menu-item index="1-1" @click="noServices">待付款</el-menu-item>
+                        <el-menu-item index="1-2" @click="noServices">待收货</el-menu-item>
+                        <el-menu-item index="1-3" @click="noServices">已完成</el-menu-item>
+                        <el-menu-item index="1-4" @click="noServices">退换货</el-menu-item>
                     </el-submenu>
                     <el-menu-item index="2">
                         <i class="el-icon-menu"></i>
-                        <span slot="title">会员中心</span>
+                        <span slot="title">聊天室</span>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-document"></i>
-                        <span slot="title">我的优惠</span>
+                        <span slot="title" @click="noServices">我的优惠</span>
                     </el-menu-item>
                     <el-menu-item index="4">
                         <i class="el-icon-setting"></i>
-                        <span slot="title">地址管理</span>
+                        <span slot="title" @click="noServices">地址管理</span>
                     </el-menu-item>
                     <el-menu-item index="5">
                         <i class="el-icon-setting"></i>
-                        <span slot="title">我的设置</span>
+                        <span slot="title" @click="noServices">我的设置</span>
+                    </el-menu-item>
+                    <el-menu-item index="6">
+                        <i class="el-icon-setting"></i>
+                        <span slot="title" @click="logout">退出登陆</span>
                     </el-menu-item>
                 </el-menu>
             </el-card>
@@ -51,7 +54,45 @@
     export default {
         data(){
             return {
-                username: '我好饿了'
+                c: ''
+            }
+        },
+        methods:{
+            noServices() {
+                this.$message({
+                    type: 'warning',
+                    message: '抱歉,正在建设中...'
+                })
+            },
+            logout() {
+                this.$axios.post('user/logout', {}, {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json'
+                    } }
+                ).then((Response) => {
+                    console.log(Response)
+                    if (Response.data.code === 200) {
+                        this.$message({
+                            type: 'success',
+                            message: '已注销!'
+                        })
+                        this.$store.dispatch('loginOut')
+                    } else {
+                        this.$message({
+                            type: 'warning',
+                            message: Response.data.msg
+                        })
+                    }
+                })
+            },
+            checkLoginFlag () {
+                return this.$store.state.user.id === undefined || this.$store.state.user.id === ''
+            },
+        },
+        computed: {
+            username: function () {
+                return this.$store.state.user.name
             }
         }
     }
