@@ -7,7 +7,6 @@
   </div>
 </template>
 <script>
-import BottomNav from './components/BottomNav'
 export default {
   data(){
     return {
@@ -17,9 +16,6 @@ export default {
     }
   },
   name: 'app',
-  components: {
-      BottomNav
-  },
   methods: {
     showSearchMethod() {
       this.showSearch = true;

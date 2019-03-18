@@ -74,17 +74,21 @@
                         'Content-Type': 'application/json'
                     } }
                 ).then((Response) => {
-                    if (Response.data.code === 200) {
-                        this.$message({
-                            type: 'success',
-                            message: '已注销!'
-                        })
-                        this.$store.dispatch('loginOut')
+                    if (Response !== null && Response !== undefined){
+                        if (Response.data.code === 200) {
+                            this.$message({
+                                type: 'success',
+                                message: '已注销!'
+                            })
+                            this.$store.dispatch('loginOut')
+                        } else {
+                            this.$message({
+                                type: 'warning',
+                                message: Response.data.msg
+                            })
+                        }
                     } else {
-                        this.$message({
-                            type: 'warning',
-                            message: Response.data.msg
-                        })
+                        this.$store.dispatch('loginOut')
                     }
                 })
             },

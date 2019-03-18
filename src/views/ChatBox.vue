@@ -6,16 +6,26 @@
         <el-main>
             <scroller  ref="shopping_scroller" noDataText="" height="85%" style="top: 50px; left: 0">
                 <div class="shopping-main">
-                    <span>聊天室<br></span>
+                    <el-table
+                            :data="tableData"
+                            style="width: 100%"
+                            height="250">
+                        <el-table-column
+                                fixed
+                                prop="text"
+                                label="聊天室"
+                        >
+                        </el-table-column>
+                    </el-table>
                 </div>
             </scroller>
             <div class="bottom-checkBox">
                 <el-row :gutter="24">
                     <el-col :span="18">
-                        <el-input  class="bottom-input" v-model="input" :label-width="input_width" placeholder=""></el-input>
+                        <el-input  class="bottom-input" v-model="input"  placeholder=""></el-input>
                     </el-col>
                     <el-col :span="6">
-                        <el-button class="button-right" type="success" @click="webSocketSend">发送</el-button>
+                        <el-button class="button-right" type="success" @click="onSend">发送</el-button>
                     </el-col>
                 </el-row>
             </div>
@@ -24,45 +34,76 @@
 </template>
 <script>
     import TopNav from '../components/TopNav'
+
     export default {
         data(){
             return {
                 websocket: null,
                 title: '聊天室',
                 input: '',
-                input_width: '100px'
+                tableData: [{
+                    text: '1213'
+                },
+                {
+                    text: '121123231'
+                }
+                ]
             }
         },
         methods:{
-          initWebsocket() {
-              let uri = "ws://localhost:9090/wschat";//ws地址
-              this.websocket = new WebSocket(uri);
-              this.websocket.onOpen = this.webSocketOnOpen;
-              this.websocket.onError = this.webSocketOnError;
-              this.websocket.onMessage = this.webSocketOnMessage;
-              this.websocket.onClose = this.webSocketClose;
-          },
-            webSocketOnOpen() {
-                console.warn("WebSocket连接成功");
-            },
-            webSocketOnError(e) { //错误
-                console.log("WebSocket连接发生错误");
-            },
-            webSocketOnMessage(e){ //数据接收
-                const redata = JSON.parse(e.data);
-                //注意：长连接我们是后台直接1秒推送一条数据，
-                //但是点击某个列表时，会发送给后台一个标识，后台根据此标识返回相对应的数据，
-                //这个时候数据就只能从一个出口出，所以让后台加了一个键，例如键为1时，是每隔1秒推送的数据，为2时是发送标识后再推送的数据，以作区分
-                console.log(redata.value);
-            },
-            webSocketSend(){//数据发送
+            /**
+             * 数据发送
+             */
+            onSend(){
                 if (this.input){
-                    this.websock.send(this.input);
+                    let sendMsg = JSON.stringify({sendUser: this.$store.state.user.name, msg: this.input});
+                    this.websocket.send(sendMsg);
+                    this.input = ''
+                }else{
+                    console.log('请输入...')
                 }
             },
-            webSocketClose(e){ //关闭
-                console.log("connection closed (" + e.code + ")");
+            initWebsocket() {
+                console.log('webSocket初始化....');
+                const uri = "ws://localhost:9090/wschat";//ws地址
+                if ('WebSocket' in window) {
+                    this.websocket = new WebSocket(uri);
+                } else {
+                    alert('当前浏览器 Not support websocket')
+                }
+                this.websocket.onOpen = this.onOpen;
+                this.websocket.onError = this.OnError;
+                this.websocket.onMessage = this.OnMessage;
+                this.websocket.onClose = this.onClose;
             },
+            onOpen() {
+                console.log('WebSocket连接成功')
+            },
+            /**
+             * 错误
+             * */
+            OnError(e) {
+                console.log("WebSocket连接发生错误:"+ e);
+            },
+            /**
+             * 数据接收
+             * @param e
+             * */
+            OnMessage(e){
+                console.log('WebSocket收到消息' + e.data);
+                let message = JSON.parse(e.data) || {};
+                if (message.type === 'SPEAK') {
+                    this.tableData.pop(message.username + ':' + message.msg )
+                }
+            },
+            /**
+             * 关闭
+             * @param e
+             */
+            onClose(e){
+                this.websocket.close();
+                console.log("connection closed (" + e + ")");
+            }
         },
         components:{
             TopNav
@@ -71,7 +112,7 @@
             this.initWebsocket()
         },
         destroyed: function() {
-            this.webSocketClose()
+            this.onClose();
         }
     }
 </script>
