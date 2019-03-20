@@ -5,8 +5,8 @@ import axios from 'axios'
 import Utils from '@/js/utils/crypto.js'
 import { Message } from 'element-ui'
 import store from '../../store'
-// axios.defaults.baseURL = 'http://111.230.183.115:9090'
-axios.defaults.baseURL = 'http://localhost:9090'
+axios.defaults.baseURL = 'http://111.230.183.115:9090'
+// axios.defaults.baseURL = 'http://localhost:9090'
 // axios.defaults.withCredentials = true
 
 /**
